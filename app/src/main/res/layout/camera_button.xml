@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/camera_button_layout"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:clipToPadding="false"
-    android:padding="25dp">
+    android:padding="@dimen/button_parent_padding">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/camera_shadow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:outlineAmbientShadowColor="@color/white"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="100dp"
-        app:cardElevation="20dp"
+        app:cardElevation="@dimen/button_elevation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,29 +26,27 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/teal_camera_circle"
-                android:layout_width="@dimen/outter_camera_button_size"
-                android:layout_height="@dimen/outter_camera_button_size"
-                android:elevation="10dp"
+                android:id="@+id/camera_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/teal_circle" />
+                app:srcCompat="@drawable/dark_grey_circle" />
 
             <ImageView
                 android:id="@+id/camera"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="24dp"
-                android:elevation="10dp"
-                app:layout_constraintBottom_toBottomOf="@+id/teal_camera_circle"
-                app:layout_constraintEnd_toEndOf="@+id/teal_camera_circle"
-                app:layout_constraintStart_toStartOf="@+id/teal_camera_circle"
-                app:layout_constraintTop_toTopOf="@+id/teal_camera_circle"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="36dp"
+                app:layout_constraintBottom_toBottomOf="@+id/camera_background"
+                app:layout_constraintEnd_toEndOf="@+id/camera_background"
+                app:layout_constraintStart_toStartOf="@+id/camera_background"
+                app:layout_constraintTop_toTopOf="@+id/camera_background"
                 app:srcCompat="@drawable/ic_camera_white" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
