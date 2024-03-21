@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="outter_camera_button_size">100dp</dimen>
-    <dimen name="inner_camera_button_size">80dp</dimen>
-
-    <dimen name="button_elevation">50dp</dimen>
-</resources>
