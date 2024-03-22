@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="outer_camera_button_size">100dp</dimen>
+    <dimen name="inner_camera_button_size">80dp</dimen>
+
+    <dimen name="button_elevation">30dp</dimen>
+    <dimen name="button_parent_padding">60dp</dimen>
+
+    <dimen name="title_top_constraint">175dp</dimen>
+
+</resources>
