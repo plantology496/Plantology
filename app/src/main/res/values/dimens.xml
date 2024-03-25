@@ -8,4 +8,11 @@
 
     <dimen name="title_top_constraint">175dp</dimen>
 
+    <dimen name="card_corner_radius">40dp</dimen>
+
+    // Text Shadow
+    <dimen name="shadow_dx">5</dimen>
+    <dimen name="shadow_dy">5</dimen>
+    <dimen name="shadow_radius">5</dimen>
+
 </resources>
