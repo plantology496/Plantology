@@ -16,7 +16,6 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -44,7 +43,7 @@ public class HomeActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         cameraButton = findViewById(R.id.camera_button);
-        cameraButton.setOnClickListener(this::onLaunchCamera);
+        cameraButton.setOnClickListener(this::openPlantDetail);
     }
 
     // TODO :: Needs to be moved to HomeViewModel (onLaunchCamera, getPhotoFileUri, onActivityResult)
@@ -106,5 +105,11 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    // TODO :: Delete
+    private void openPlantDetail(View view) {
+        Intent intent = new Intent(HomeActivity.this, PlantDetailActivity.class);
+        startActivity(intent);
     }
 }
