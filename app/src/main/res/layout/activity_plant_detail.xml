@@ -11,13 +11,14 @@
         android:id="@+id/plant_image"
         android:layout_width="0dp"
         android:layout_height="400dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:srcCompat="@drawable/aloe_vera" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/other_cam"
         android:layout_width="@dimen/inner_camera_button_size"
         android:layout_height="@dimen/inner_camera_button_size"
         android:layout_marginEnd="24dp"
@@ -38,50 +39,57 @@
         android:layout_height="0dp"
         app:cardBackgroundColor="@color/dark_back"
         app:cardElevation="@dimen/card_elevation"
+        app:contentPadding="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/plant_image">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="25dp">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/plant_name"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/alata"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textColor="@color/white"
-                android:textSize="34sp"
-                tools:text="Plant Name" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/space_height_large" />
+                <TextView
+                    android:id="@+id/plant_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alata"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/white"
+                    android:textSize="34sp"
+                    tools:text="Plant Name" />
 
-            <TextView
-                android:id="@+id/desc_head"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Description"
-                android:textAppearance="@style/TextAppearance.AppCompat.Heading1"
-                tools:text="Description" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_height_large" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/space_height_small" />
+                <TextView
+                    android:id="@+id/desc_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Heading1"
+                    tools:text="Description" />
 
-            <TextView
-                android:id="@+id/desc_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body"
-                tools:text="Text description of the plant" />
-        </LinearLayout>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_height_small" />
+
+                <TextView
+                    android:id="@+id/desc_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body"
+                    tools:text="Text description of the plant" />
+            </LinearLayout>
+
+        </ScrollView>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
