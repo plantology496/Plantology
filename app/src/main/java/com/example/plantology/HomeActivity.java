@@ -43,7 +43,7 @@ public class HomeActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         cameraButton = findViewById(R.id.camera_button);
-        cameraButton.setOnClickListener(this::openPlantDetail);
+        cameraButton.setOnClickListener(this::onLaunchCamera);
     }
 
     // TODO :: Needs to be moved to HomeViewModel (onLaunchCamera, getPhotoFileUri, onActivityResult)
@@ -97,7 +97,8 @@ public class HomeActivity extends AppCompatActivity {
                 if (resultCode == Activity.RESULT_OK) {
                     // by this point we have the camera photo on disk
                     takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
-                    viewModel.runPlantIdentifier(takenImage);
+                    openPlantDetail();
+//                    viewModel.runPlantIdentifier(takenImage);
                 } else { // Result was a failure
                     Toast.makeText(getApplicationContext(),
                               "Picture wasn't taken!",
@@ -108,7 +109,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     // TODO :: Delete
-    private void openPlantDetail(View view) {
+    private void openPlantDetail() {
         Intent intent = new Intent(HomeActivity.this, PlantDetailActivity.class);
         startActivity(intent);
     }
