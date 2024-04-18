@@ -25,7 +25,6 @@ public class PlantDetailActivity extends AppCompatActivity {
     FloatingActionButton cameraButton;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
