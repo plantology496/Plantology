@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/aloe_vera" />
+         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/other_cam"
@@ -62,7 +62,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
                     android:textColor="@color/white"
                     android:textSize="34sp"
-                    tools:text="Plant Name" />
+                    />
 
                 <Space
                     android:layout_width="match_parent"
@@ -72,9 +72,9 @@
                     android:id="@+id/desc_head"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Description"
+
                     android:textAppearance="@style/TextAppearance.AppCompat.Heading1"
-                    tools:text="Description" />
+                    />
 
                 <Space
                     android:layout_width="match_parent"
@@ -85,7 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body"
-                    tools:text="Text description of the plant" />
+                     />
             </LinearLayout>
 
         </ScrollView>
