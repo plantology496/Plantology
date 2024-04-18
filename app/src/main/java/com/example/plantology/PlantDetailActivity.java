@@ -35,5 +35,25 @@ public class PlantDetailActivity extends AppCompatActivity {
         Intent intent = new Intent(PlantDetailActivity.this, HomeActivity.class);
         startActivity(intent);
     }
+    public void parseJson(String s){
+        try {
+            JSONObject jsobj = new JSONObject(s);
+            JSONArray jsonArr = jsobj.getJSONArray("data");
+            for (int i = 0; i < jsonArr.length(); i++){
+                String comname, formalname,year;
+                JSONObject jsonobj2 = jsonArr.getJSONObject(i);
+                comname = jsonobj2.getString("common_name");
+                formalname = jsonobj2.getString("scientific_name");
+                year = jsonobj2.getString("year");
+
+               // tv.append("Common name: "+ comname + " Science name: "+ formalname + "Year: " + year + "\n" );
+
+            }
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
 
 }
