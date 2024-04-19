@@ -28,7 +28,8 @@ public class PlantDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fetchTul();
+       // fetchTul();
+        getPlantInfo("sunflower");
         setContentView(R.layout.activity_plant_detail);
         cameraButton = findViewById(R.id.other_cam);
         cameraButton.setOnClickListener(this::openHome);
@@ -152,4 +153,21 @@ public class PlantDetailActivity extends AppCompatActivity {
         plant_desc.append("\n In Peninsula Sandstone Fynbos vegetation, Aloe succotrina thrives, often nestled high on cliff faces and rocky outcrops, safe from seasonal fires. Forming clusters up to 1 to 2 meters in diameter, this aloe's dense rosettes come to life in winter (June to September), showcasing tall racemes adorned with shiny red flowers, eagerly visited by sunbirds for pollination. \n");
         plant_desc.append("\nPreferring sunny, well-drained spots, it requires ample space to flourish, eventually developing into expansive, dense clusters. Propagation is achievable through both cuttings/offshoots and seeds.");
     }
+
+    public void getPlantInfo(String s){
+        switch (s){
+            case "tulip":
+                fetchTul();
+                break;
+
+            case  "sunflower" :
+                fetchSun();
+                break;
+
+            case  "aloe vera":
+            fetchAl();
+            break;
+        }
+    }
+
 }
