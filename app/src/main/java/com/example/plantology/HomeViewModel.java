@@ -17,7 +17,13 @@ import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import androidx.lifecycle.AndroidViewModel;
 
+//import com.example.plantology.ml.MobilenetV110224Quant;
+
+import org.tensorflow.lite.DataType;
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
+
 import java.io.File;
+import java.io.IOException;
 
 public class HomeViewModel extends AndroidViewModel {
 
@@ -30,8 +36,22 @@ public class HomeViewModel extends AndroidViewModel {
         context = application.getApplicationContext();
     }
 
-    public void runPlantIdentifier(Bitmap takenImage) {
-        // TODO :: This should send the image to the virtual machine, return the name of the plant,
-        //  and pull information from the API about the plant
-    }
+//    public void runPlantIdentifier(Bitmap takenImage) {
+//        try {
+//            MobilenetV110224Quant model = MobilenetV110224Quant.newInstance(this.getApplication());
+//
+//            // Creates inputs for reference.
+//            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.UINT8);
+//            inputFeature0.loadBuffer(takenImage);
+//
+//            // Runs model inference and gets result.
+//            MobilenetV110224Quant.Outputs outputs = model.process(inputFeature0);
+//            TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
+//
+//            // Releases model resources if no longer used.
+//            model.close();
+//        } catch (IOException e) {
+//            // TODO Handle the exception
+//        }
+//    }
 }
