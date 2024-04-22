@@ -5,25 +5,27 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import androidx.lifecycle.AndroidViewModel;
 
-//import com.example.plantology.ml.MobilenetV110224Quant;
+
+
+import com.example.plantology.ml.FlowerMl;
+
+
+
 
 import org.tensorflow.lite.DataType;
+import org.tensorflow.lite.support.image.TensorImage;
+import org.tensorflow.lite.support.label.Category;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class HomeViewModel extends AndroidViewModel {
 
@@ -31,27 +33,36 @@ public class HomeViewModel extends AndroidViewModel {
 
     private final Context context;
 
+
     public HomeViewModel(@NonNull Application application) {
         super(application);
         context = application.getApplicationContext();
     }
+   //private ImageLabeler imageLabeler;
 
-//    public void runPlantIdentifier(Bitmap takenImage) {
-//        try {
-//            MobilenetV110224Quant model = MobilenetV110224Quant.newInstance(this.getApplication());
+   public void runPlantIdentifier(Bitmap takenImage) {
+        openPlantDetail("sunflower");
+//    try {
+//        FlowerMl model = FlowerMl.newInstance(context);
 //
-//            // Creates inputs for reference.
-//            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.UINT8);
-//            inputFeature0.loadBuffer(takenImage);
+//        // Creates inputs for reference.
+//        TensorImage image = TensorImage.fromBitmap(takenImage);
 //
-//            // Runs model inference and gets result.
-//            MobilenetV110224Quant.Outputs outputs = model.process(inputFeature0);
-//            TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
+//        // Runs model inference and gets result.
+//        FlowerMl.Outputs outputs = model.process(image);
+//        List<Category> probability = outputs.getProbabilityAsCategoryList();
 //
-//            // Releases model resources if no longer used.
-//            model.close();
-//        } catch (IOException e) {
-//            // TODO Handle the exception
-//        }
+//        openPlantDetail(probability.get(0).toString());
+//        // Releases model resources if no longer used.
+//        model.close();
+//    } catch (IOException e) {
+//        // TODO Handle the exception
 //    }
+//
+   }
+    private void openPlantDetail(String plantName) {
+        Intent intent = new Intent(context, PlantDetailActivity.class);
+        intent.putExtra("plantName",plantName);
+        context.startActivity(intent);
+    }
 }

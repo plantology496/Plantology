@@ -16,7 +16,11 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+
+
 
 import java.io.File;
 
@@ -98,7 +102,7 @@ public class HomeActivity extends AppCompatActivity {
                     // by this point we have the camera photo on disk
                     takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
                     openPlantDetail();
-//                    viewModel.runPlantIdentifier(takenImage);
+                   //viewModel.runPlantIdentifier(takenImage);
                 } else { // Result was a failure
                     Toast.makeText(getApplicationContext(),
                               "Picture wasn't taken!",
@@ -108,7 +112,8 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    // TODO :: Delete
+
+        // TODO :: Delete
     private void openPlantDetail() {
         Intent intent = new Intent(HomeActivity.this, PlantDetailActivity.class);
         startActivity(intent);

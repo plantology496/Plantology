@@ -28,8 +28,9 @@ public class PlantDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // fetchTul();
-        getPlantInfo("sunflower");
+        String plantName = getIntent().getStringExtra("plantName");
+        getPlantInfo(plantName);
+        //getPlantInfo("tulip");
         setContentView(R.layout.activity_plant_detail);
         cameraButton = findViewById(R.id.other_cam);
         cameraButton.setOnClickListener(this::openHome);
@@ -159,14 +160,19 @@ public class PlantDetailActivity extends AppCompatActivity {
             case "tulip":
                 fetchTul();
                 break;
-
+            case "Tulip":
+                fetchTul();
+                break;
             case  "sunflower" :
                 fetchSun();
                 break;
-
+            case "Sunflower":
+                fetchSun();
+                break;
             case  "aloe vera":
             fetchAl();
             break;
+
         }
     }
 
