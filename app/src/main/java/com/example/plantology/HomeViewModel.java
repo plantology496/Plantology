@@ -40,26 +40,26 @@ public class HomeViewModel extends AndroidViewModel {
     }
    //private ImageLabeler imageLabeler;
 
-   public void runPlantIdentifier(Bitmap takenImage) {
+    // parameter: Bitmap takenImage
+   public void runPlantIdentifier() {
         openPlantDetail("sunflower");
+//      try {
+//    Model model = Model.newInstance(context);
+//
+//    // Creates inputs for reference.
+//    TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 180, 180, 3}, DataType.FLOAT32);
+//    inputFeature0.loadBuffer(byteBuffer);
+//
+//    // Runs model inference and gets result.
+//    Model.Outputs outputs = model.process(inputFeature0);
+//    TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
+//
+//    // Releases model resources if no longer used.
+//    model.close();
+//} catch (IOException e) {
+//    // TODO Handle the exception
+//}
 
-//    try {
-//        FlowerMl model = FlowerMl.newInstance(context);
-//
-//        // Creates inputs for reference.
-//        TensorImage image = TensorImage.fromBitmap(takenImage);
-//
-//        // Runs model inference and gets result.
-//        FlowerMl.Outputs outputs = model.process(image);
-//        List<Category> probability = outputs.getProbabilityAsCategoryList();
-//
-//        openPlantDetail(probability.get(0).toString());
-//        // Releases model resources if no longer used.
-//        model.close();
-//    } catch (IOException e) {
-//        // TODO Handle the exception
-
-//    }
 //
    }
     private void openPlantDetail(String plantName) {

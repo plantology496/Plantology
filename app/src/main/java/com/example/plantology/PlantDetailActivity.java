@@ -30,7 +30,7 @@ public class PlantDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         String plantName = getIntent().getStringExtra("plantName");
         getPlantInfo(plantName);
-        //getPlantInfo("tulip");
+       // getPlantInfo("aloe vera");
         setContentView(R.layout.activity_plant_detail);
         cameraButton = findViewById(R.id.other_cam);
         cameraButton.setOnClickListener(this::openHome);

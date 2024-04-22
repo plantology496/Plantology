@@ -101,8 +101,9 @@ public class HomeActivity extends AppCompatActivity {
                 if (resultCode == Activity.RESULT_OK) {
                     // by this point we have the camera photo on disk
                     takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
-                    openPlantDetail();
-                   //viewModel.runPlantIdentifier(takenImage);
+                    openPlantDetailog();
+                   // viewModel.runPlantIdentifier(takenImage);
+                    //viewModel.runPlantIdentifier();
                 } else { // Result was a failure
                     Toast.makeText(getApplicationContext(),
                               "Picture wasn't taken!",
@@ -114,7 +115,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         // TODO :: Delete
-    private void openPlantDetail() {
+    private void openPlantDetailog() {
         Intent intent = new Intent(HomeActivity.this, PlantDetailActivity.class);
         startActivity(intent);
     }
