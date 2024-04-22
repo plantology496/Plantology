@@ -42,6 +42,7 @@ public class HomeViewModel extends AndroidViewModel {
 
    public void runPlantIdentifier(Bitmap takenImage) {
         openPlantDetail("sunflower");
+
 //    try {
 //        FlowerMl model = FlowerMl.newInstance(context);
 //
