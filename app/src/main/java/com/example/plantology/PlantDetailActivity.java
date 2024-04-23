@@ -28,9 +28,9 @@ public class PlantDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        String plantName = getIntent().getStringExtra("plantName");
-//        getPlantInfo(plantName);
-        //getPlantInfo("aloe vera");
+        //String plantName = getIntent().getStringExtra("plantName");
+        //getPlantInfo(plantName);
+        getPlantInfo("sunflower");
         setContentView(R.layout.activity_plant_detail);
         cameraButton = findViewById(R.id.other_cam);
         cameraButton.setOnClickListener(this::openHome);
@@ -42,19 +42,18 @@ public class PlantDetailActivity extends AppCompatActivity {
     }
     public void fetchSun(){
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://trefle.io/api/v1/plants/search?token=rZ-7R4Cf8JDByn0SZer2AXIOxyS3yXyY53XtEtq56RY&q=wetlandsunflower";
-          TextView plant_name = findViewById(R.id.plant_name);
-          TextView plant_desc = findViewById(R.id.desc_text);
+        String url = "https://trefle.io/api/v1/plants/search?token=rZ-7R4Cf8JDByn0SZer2AXIOxyS3yXyY53XtEtq56RY&q=sunflower";
+        TextView plant_name = findViewById(R.id.plant_name);
         StringRequest sr = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
+                        parseJsonSun(s);
+                        sundesc();
                         Picasso.get()
-                                .load("https://bs.plantnet.org/image/o/716addb37cf8883bffe882d8e729f559291269a1")
+                                .load("https://bs.plantnet.org/image/o/e92bdbc5adc4e91cc0c5aa8e9f102833a28bc6e3")
                                 .resize(1000,1000)
                                 .into((android.widget.ImageView) findViewById(R.id.plant_image));
-                        parseJson(s);
-                        sundesc();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -77,7 +76,6 @@ public class PlantDetailActivity extends AppCompatActivity {
                                 .load("https://bs.plantnet.org/image/o/d4c0f2783bc219e8f87613b802537bc8b48900ff")
                                 .resize(1000,1000)
                                 .into((android.widget.ImageView) findViewById(R.id.plant_image));
-                        tulipdesc();
                         parseJson(s);
                        tulipdesc();
                     }
@@ -89,21 +87,66 @@ public class PlantDetailActivity extends AppCompatActivity {
         });
         queue.add(sr);
     }
-    public void fetchAl(){
+    public void fetchRose(){
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://trefle.io/api/v1/plants/search?token=rZ-7R4Cf8JDByn0SZer2AXIOxyS3yXyY53XtEtq56RY&q=fynbosaleo";
-          TextView plant_name = findViewById(R.id.plant_name);
-    TextView plant_desc = findViewById(R.id.desc_text);
+        String url = "https://trefle.io/api/v1/plants/search?token=rZ-7R4Cf8JDByn0SZer2AXIOxyS3yXyY53XtEtq56RY&q=aplinerose";
+        TextView plant_name = findViewById(R.id.plant_name);
         StringRequest sr = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
                         Picasso.get()
-                                .load("https://bs.plantnet.org/image/o/a63d11c6686000784667f0196717660e7cbf2701")
+                                .load("https://bs.plantnet.org/image/o/7097f02868c5809ba4f42fdf6a3d498133973157")
                                 .resize(1000,1000)
                                 .into((android.widget.ImageView) findViewById(R.id.plant_image));
                         parseJson(s);
-                        aloedesc();
+                        rosedesc();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                plant_name.setText("That didnt work");
+            }
+        });
+        queue.add(sr);
+    }
+    public void fetchDan(){
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "https://trefle.io/api/v1/plants/search?token=rZ-7R4Cf8JDByn0SZer2AXIOxyS3yXyY53XtEtq56RY&q=dandelion";
+          TextView plant_name = findViewById(R.id.plant_name);
+        StringRequest sr = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        Picasso.get()
+                                .load("https://bs.plantnet.org/image/o/0db7ea62d6284a8e474472a660e6af4fa2d6ac7f")
+                                .resize(1000,1000)
+                                .into((android.widget.ImageView) findViewById(R.id.plant_image));
+                        parseJson(s);
+                        dandesc();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                plant_name.setText("That didnt work");
+            }
+        });
+        queue.add(sr);
+    }
+    public void fetchDas(){
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "https://trefle.io/api/v1/plants/search?token=rZ-7R4Cf8JDByn0SZer2AXIOxyS3yXyY53XtEtq56RY&q=daisy";
+        TextView plant_name = findViewById(R.id.plant_name);
+        StringRequest sr = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        Picasso.get()
+                                .load("https://bs.plantnet.org/image/o/43061c6c2cb49908503eac2eaec0ddab69958e17")
+                                .resize(1000,1000)
+                                .into((android.widget.ImageView) findViewById(R.id.plant_image));
+                        parseJsonSun(s);
+                        dasdesc();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -137,6 +180,25 @@ public class PlantDetailActivity extends AppCompatActivity {
         }
 
    }
+    public void parseJsonSun(String s){
+        TextView plant_name = findViewById(R.id.plant_name);
+        TextView plant_desc = findViewById(R.id.desc_text);
+        String comname, formalname,year;
+        try {
+            JSONObject jsobj = new JSONObject(s);
+            JSONArray jsonArr = jsobj.getJSONArray("data");
+                JSONObject jsonobj2 = jsonArr.getJSONObject(0);
+                comname = jsonobj2.getString("common_name");
+                formalname = jsonobj2.getString("scientific_name");
+                year = jsonobj2.getString("year");
+                plant_name.setText(comname);
+                plant_desc.setText("The plants scientific name is : " + formalname + "\n and was discovered in:  " + year+ "\n");
+
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
     public void tulipdesc() {
         TextView plant_desc = findViewById(R.id.desc_text);
             plant_desc.append("\nTulipa orphanidea, a bulbous perennial, stands at a height of 10 to 20 cm. Its stem, either smooth or hairy, supports 2 to 7 green leaves, often tinged with red along their edges. Atop the stem, 1 to 4 globular to star-shaped flowers bloom, boasting copper-red tepals," +
@@ -146,34 +208,45 @@ public class PlantDetailActivity extends AppCompatActivity {
     }
     public void sundesc() {
         TextView plant_desc = findViewById(R.id.desc_text);
-        plant_desc.append("\nHelianthus heterophyllus, also known as variableleaf sunflower or wetland sunflower, graces the coastal plain of the southern United States, spanning from Texas to North Carolina. This perennial, reaching heights of up to 120 cm, spreads via underground rhizomes.\n \n");
-        plant_desc.append("\nIts hairless or nearly hairless leaves and stems exhibit a white underside due to abundant wax. Each plant may bear 1 to 5 flower heads, featuring 12 to 18 yellow ray florets encircling at least 100 red or brown disc florets. Thriving in wet sandy soils at low elevations, this species adds vibrancy to its surroundings.");
+        plant_desc.append("\n The common sunflower (Helianthus annuus) is a species of large annual forb of the daisy family Asteraceae. The common sunflower is harvested for its edible oily seeds which are used in the production of cooking oil.\n \n");
+        plant_desc.append("\nThe Helianthus annuus is known for its multiple flower heads, whereas the domestic sunflower often possesses a single large flower head atop an unbranched stem.");
     }
-    public void aloedesc() {
+    public void dandesc() {
         TextView plant_desc = findViewById(R.id.desc_text);
-        plant_desc.append("\n In Peninsula Sandstone Fynbos vegetation, Aloe succotrina thrives, often nestled high on cliff faces and rocky outcrops, safe from seasonal fires. Forming clusters up to 1 to 2 meters in diameter, this aloe's dense rosettes come to life in winter (June to September), showcasing tall racemes adorned with shiny red flowers, eagerly visited by sunbirds for pollination. \n");
-        plant_desc.append("\nPreferring sunny, well-drained spots, it requires ample space to flourish, eventually developing into expansive, dense clusters. Propagation is achievable through both cuttings/offshoots and seeds.");
+        plant_desc.append("\n They are annual or perennial herbs growing from a fibrous root system or a taproot. One species has rhizomes with tubers. The plants produce a single stem or up to 50 or more, usually growing erect, reaching a few centimeters to 75 centimeters tall. \n");
+        plant_desc.append("\n The blades are often linear to lance-shaped, toothed or lobed, and borne on winged petioles. The flower heads are solitary, growing at the top of the stem or on stalks from the leaf axils. They contain up to 60 yellow or orange flowers.");
+    }
+    public void dasdesc() {
+        TextView plant_desc = findViewById(R.id.desc_text);
+        plant_desc.append("\n Bellis perennis is a perennial herbaceous plant growing to 20 centimetres (8 inches) in height.[4] It has short creeping rhizomes and rosettes of small rounded or spoon-shaped leaves that are from 2 to 5 cm (3⁄4–2 in) long and grow flat to the ground. \n");
+        plant_desc.append("\nThe species habitually colonises lawns, and is difficult to eradicate by mowing, hence the term 'lawn daisy'. It blooms from March to September[4] and exhibits the phenomenon of heliotropism, in which the flowers follow the position of the sun in the sky.\n" +
+                "\n");
     }
 
+    public void rosedesc() {
+        TextView plant_desc = findViewById(R.id.desc_text);
+        plant_desc.append("\nRosa pendulina, (syn. Rosa alpina), the Alpine rose or mountain rose, is a species of wild rose found in the mountains of central and southern Europe. It appears to have survived in glacial refugia in the Alps and Carpathians, and spread out from there.[4] A climbing shrub with deep pink flowers and relatively few thorns, it has had a history of cultivation as an ornamental plant\n");
+    }
     public void getPlantInfo(String s){
         switch (s){
             case "tulip":
                 fetchTul();
                 break;
-            case "Tulip":
-                fetchTul();
+            case "daisy":
+                fetchDas();
                 break;
             case  "sunflower" :
                 fetchSun();
                 break;
-            case "Sunflower":
-                fetchSun();
+            case "dandelion":
+                fetchDan();
                 break;
-            case  "aloe vera":
-            fetchAl();
+            case  "rose":
+                fetchRose();
             break;
 
         }
     }
+
 
 }
