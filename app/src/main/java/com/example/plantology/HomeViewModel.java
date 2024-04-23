@@ -11,6 +11,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.MutableLiveData;
 
 
 import com.example.plantology.ml.Model;
@@ -32,6 +33,8 @@ public class HomeViewModel extends AndroidViewModel {
 
     private final Context context;
 
+    MutableLiveData<String> plantFound = new MutableLiveData<>();
+
 
     public HomeViewModel(@NonNull Application application) {
         super(application);
@@ -50,19 +53,17 @@ public class HomeViewModel extends AndroidViewModel {
 
            // Releases model resources if no longer used.
            model.close();
-           String plantFound = "";
            float max = 0;
            for (int j = 0; j < probability.size(); j++){
                float percent = probability.get(j).getScore()*100;
                if (max < percent ){
                    max = percent;
-                   plantFound = probability.get(j).getLabel();
-                   Log.i(TAG, "runPlantIdentifier: "+percent+ " "+ max+ " "+  j + " " + plantFound);
+                   plantFound.setValue(probability.get(j).getLabel());
+                   Log.i(TAG, "runPlantIdentifier: "+percent+ " "+ max+ " "+  j + " " + plantFound.getValue());
                }
            }
 
-           Log.i(TAG, "runPlantIdentifier: " + plantFound);
-          // openPlantDetail(plantFound);
+           Log.i(TAG, "runPlantIdentifier: " + plantFound.getValue());
 //          //  get label gives name for plant, get scorce tell percent
            Log.i(TAG, "runPlantIdentifier index 0:" + probability.get(0).toString());
            Log.i(TAG, "runPlantIdentifier index 1:" + probability.get(1).toString());
@@ -74,9 +75,4 @@ public class HomeViewModel extends AndroidViewModel {
        }
 
    }
-    private void openPlantDetail(String plantName) {
-        Intent intent = new Intent(context, PlantDetailActivity.class);
-        intent.putExtra("plantName",plantName);
-        context.startActivity(intent);
-    }
 }

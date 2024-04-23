@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -28,9 +29,8 @@ public class PlantDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // String plantName = getIntent().getStringExtra("plantName");
-      //  getPlantInfo(plantName);
-       // getPlantInfo("daisy");
+        String plantName = getIntent().getStringExtra("plantName");
+        getPlantInfo(plantName);
         setContentView(R.layout.activity_plant_detail);
         cameraButton = findViewById(R.id.other_cam);
         cameraButton.setOnClickListener(this::openHome);
@@ -229,19 +229,19 @@ public class PlantDetailActivity extends AppCompatActivity {
     }
     public void getPlantInfo(String s){
         switch (s){
-            case "tulip":
+            case "tulips":
                 fetchTul();
                 break;
             case "daisy":
                 fetchDas();
                 break;
-            case  "sunflower" :
+            case  "sunflowers" :
                 fetchSun();
                 break;
             case "dandelion":
                 fetchDan();
                 break;
-            case  "rose":
+            case  "roses":
                 fetchRose();
             break;
 

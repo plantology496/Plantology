@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.FileProvider;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Activity;
@@ -16,7 +17,6 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -48,9 +48,18 @@ public class HomeActivity extends AppCompatActivity {
 
         cameraButton = findViewById(R.id.camera_button);
         cameraButton.setOnClickListener(this::onLaunchCamera);
+
+        final Observer<String> plantNameObserver = plantFound -> {
+            if (!plantFound.isEmpty()) {
+                Log.i(TAG, "Starting Plant Detail Screen: " + plantFound);
+                openPlantDetail(plantFound);
+            } else {
+                Log.i(TAG, "No Plant Name");
+            }
+        };
+        viewModel.plantFound.observe(this, plantNameObserver);
     }
 
-    // TODO :: Needs to be moved to HomeViewModel (onLaunchCamera, getPhotoFileUri, onActivityResult)
     public void onLaunchCamera(View view) {
         // Create Intent to take a picture and return control to the calling application
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -101,9 +110,7 @@ public class HomeActivity extends AppCompatActivity {
                 if (resultCode == Activity.RESULT_OK) {
                     // by this point we have the camera photo on disk
                     takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
-                  // openPlantDetailog();
-                   viewModel.runPlantIdentifier(takenImage);
-                    //viewModel.runPlantIdentifier();
+                    viewModel.runPlantIdentifier(takenImage);
                 } else { // Result was a failure
                     Toast.makeText(getApplicationContext(),
                               "Picture wasn't taken!",
@@ -113,10 +120,9 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-
-        // TODO :: Delete
-    private void openPlantDetailog() {
+    private void openPlantDetail(String plantName) {
         Intent intent = new Intent(HomeActivity.this, PlantDetailActivity.class);
+        intent.putExtra("plantName",plantName);
         startActivity(intent);
     }
 }
