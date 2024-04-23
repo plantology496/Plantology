@@ -101,7 +101,7 @@ public class HomeActivity extends AppCompatActivity {
                 if (resultCode == Activity.RESULT_OK) {
                     // by this point we have the camera photo on disk
                     takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
-                  //  openPlantDetailog();
+                  // openPlantDetailog();
                    viewModel.runPlantIdentifier(takenImage);
                     //viewModel.runPlantIdentifier();
                 } else { // Result was a failure

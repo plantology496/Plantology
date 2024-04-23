@@ -28,9 +28,9 @@ public class PlantDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //String plantName = getIntent().getStringExtra("plantName");
-        //getPlantInfo(plantName);
-        getPlantInfo("sunflower");
+       // String plantName = getIntent().getStringExtra("plantName");
+      //  getPlantInfo(plantName);
+       // getPlantInfo("daisy");
         setContentView(R.layout.activity_plant_detail);
         cameraButton = findViewById(R.id.other_cam);
         cameraButton.setOnClickListener(this::openHome);
