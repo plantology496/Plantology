@@ -16,5 +16,23 @@
         <item name="android:spotShadowAlpha">1</item>
         <!-- Launch Screen -->
         <item name="android:windowBackground">@color/teal</item>
+        <!-- Text -->
+        <item name="android:fontFamily">@font/arial</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">34sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.Heading1">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.Body">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>

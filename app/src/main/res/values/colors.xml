@@ -12,6 +12,7 @@
     <color name="creme">#EFEDE9</color>
     <color name="darker_creme">#D3D2CA</color>
     <color name="dark_grey">#131313</color>
+    <color name="dark_back">#1E1E1E</color>
 
     <color name="transp_card_back">#8FFFFFFF</color>
 
