@@ -1,25 +1,26 @@
-This was our computer science senoir project for COMP 496
+# Plantology
+### An Android Mobile Application for On-Device Object Detection for Plant Species Identification
+*This was our Senior Project (COMP 469) for Computer Science at North Carolina A&T Stat University*
 
-Our Vision
+### Our Vision
 Plantology is designed to help people quickly identify plants on the go. Not only will the application recognize the plant, but it will also show the user some information about the plant. 
 This is an extremely helpful resource for plant enthusiasts who love to learn about new plants!
 
-Some background 
-Current methods of plant identification, such as printed guides or expert consultation, face accuracy, accessibility, and efficiency limitations. 
-These approaches often demand specialized knowledge and are impractical in real-time field settings, leading to errors and obstructing broader engagement in plant identification efforts. 
-Moreover, manual identification processes are time-consuming and prone to errors, risking mismanagement of natural resources and the spread of invasive species. 
-Plantology emerges as a solution to these challenges by leveraging technology like image recognition and machine learning. 
-This innovative app offers users a swift and dependable method to accurately identify plants, boosting productivity and facilitating informed decision-making across diverse domains, from recreational activities to agricultural management and conservation efforts. 
-With its user-friendly interface and accessibility, Plantology caters to a broad spectrum of users, from amateur naturalists exploring local flora to agricultural professionals diagnosing plant diseases in the field. 
-By empowering users with the ability to identify plants, the app fosters deeper engagement with the natural world. 
-Additionally, Plantology has the potential to foster public participation in citizen science initiatives by encouraging users to contribute observations and data. 
-This crowdsourced information is invaluable for researchers and conservationists in monitoring plant distributions, evaluating habitat health, and prioritizing conservation efforts. 
-In summary, the limitations of traditional plant identification methods underscore the need for a plant identification app. 
-Plantology's capacity to address these challenges and meet diverse user needs positions it to revolutionize plant identification practices, making significant contributions to environmental stewardship and biodiversity conservation.
+### Background
+- Current methods of plant identification, such as printed guides or expert consultation, face accuracy, accessibility, and efficiency limitations. 
+- These approaches often demand specialized knowledge and are impractical in real-time field settings, leading to errors and obstructing broader engagement in plant identification efforts. 
+- Moreover, manual identification processes are time-consuming and prone to errors, risking mismanagement of natural resources and the spread of invasive species. 
+- Plantology emerges as a solution to these challenges by leveraging technology like image recognition and machine learning. 
+- This innovative app offers users a swift and dependable method to accurately identify plants, boosting productivity and facilitating informed decision-making across diverse domains, from recreational activities to agricultural management and conservation efforts. 
+- With its user-friendly interface and accessibility, Plantology caters to a broad spectrum of users, from amateur naturalists exploring local flora to agricultural professionals diagnosing plant diseases in the field. 
+- By empowering users with the ability to identify plants, the app fosters deeper engagement with the natural world. 
+- Additionally, Plantology has the potential to foster public participation in citizen science initiatives by encouraging users to contribute observations and data. 
+- This crowdsourced information is invaluable for researchers and conservationists in monitoring plant distributions, evaluating habitat health, and prioritizing conservation efforts. 
+- In summary, the limitations of traditional plant identification methods underscore the need for a plant identification app. 
+- Plantology's capacity to address these challenges and meet diverse user needs positions it to revolutionize plant identification practices, making significant contributions to environmental stewardship and biodiversity conservation.
 
-System overview
-At a high level, this section describes how we will implement a solution to the problem. 
-The problem at hand is identifying plant species via mobile object detection and segmentation. 
-In layman’s terms, by using Plantology, the user will be able to identify a wide range of plant species by capturing an image via their mobile device’s camera. 
-Plantology will offload the captured image to a machine learning model and return its name along with quick facts to the user. 
-Because Plantology is a mobile Android application, its major components include its user interface and machine learning model. 
+### System Overview
+- The problem at hand is identifying plant species via mobile object detection and segmentation. 
+- In layman’s terms, by using Plantology, the user will be able to identify a wide range of plant species by capturing an image via their mobile device’s camera. 
+- Plantology will offload the captured image to a machine learning model and return its name along with quick facts to the user. 
+- Because Plantology is a mobile Android application, its major components include its user interface and machine learning model. 
